@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center">User Informantion</h1>
+    <table border="2" align="center">
+        <tr>
+            <th>Username</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>IsSuperuser</th>
+            <th>IsStaff</th>
+            <th>Edit</th>
+            <!-- <th>Delete</th> -->
+        </tr>
+
+        {% for x in data %}
+
+        <tr>
+
+            <td>{{ x.username }}</td>
+            <td>{{ x.first_name }}</td>
+            <td>{{ x.last_name }}</td>
+            <td>{{ x.email }}</td>
+            <td>{{ x.is_superuser }}</td>
+            <td>{{ x.is_staff }}</td>
+            <td><a href="/users/edit/{{ x.id }}">Edit</a></td>
+            <!-- <td><a href="/users/delete/{{ x.id }}">delete</a></td> -->
+            
+         </tr>
+
+         {% endfor %}
+
+
+
+
+    </table>
+</body>
+</html>

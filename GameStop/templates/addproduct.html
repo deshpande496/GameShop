@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center">Add Products</h1>
+    <table border="2" align="center">
+        <form action="" method="POST" enctype="multipart/form-data">
+
+
+            <!-- file will get uploaded in multiple parts -->
+
+            
+            {% csrf_token %}
+
+            {{ form.as_table }}
+
+            <tr>
+                <th colspan="2" align="center"><input type="submit" value="submit"></th>
+            </tr>
+        </form>
+    </table>
+    <br><br>
+     <h3 align="center">{{ error }}</h3>
+</body>
+</html>

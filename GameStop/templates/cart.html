@@ -1,0 +1,122 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center">Cart</h1>
+
+    <table align="center" border="2">
+
+        <tr>
+            <th>Product Name</th>
+            <th>Image</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Remove Cart</th>
+        </tr> -->
+
+        <!-- {% for x in data %}
+
+        <tr align="center">
+            <td>{{ x.product.name }}</td>
+            <td><img src="{{ x.product.image.url }} " style="width: 250px; height: 250px;"></td> -->
+
+                                                   <!-- <td>{{ x.quantity}}</td> -->
+
+            <!-- <td><select onchange="location=this.value">
+                <option value="">{{ x.quantity }}</option>
+                <option value="cart/update/1/{{ x.id }}">1</option>
+                <option value="cart/update/2/{{ x.id }}">2</option>
+                <option value="cart/update/3/{{ x.id }}">3</option>
+                <option value="cart/update/4/{{ x.id }}">4</option>
+                <option value="cart/update/5/{{ x.id }}">5</option>
+            </select></td>
+            <td>{{ x.price }}</td>
+            <td><a href="/remove_cart/{{ x.id }}">Remove</a></td>
+
+        {% endfor %}
+
+        </tr>
+
+        <tr align="center">
+            <td>Total Price</td>
+            <td></td>
+            <td></td>
+            <td>{{ total_price }}</td>
+            <td></td>
+        </tr>
+
+        
+        <h3 align="center"><button></button></h3>
+    </table>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">Cart</h1>
+
+        <table class="table table-bordered text-center">
+
+            <thead class="thead-dark">
+                <tr>
+                    <th>Product Name</th>
+                    <th>Image</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Remove Cart</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                {% for x in data %}
+                <tr>
+                    <td>{{ x.product.name }}</td>
+                    <td><img src="{{ x.product.image.url }}" class="img-fluid" style="width: 250px; height: 250px;"></td>
+                    <td>
+                        <select class="form-control" onchange="location=this.value">
+                            <option value="">{{ x.quantity }}</option>
+                            <option value="cart/update/1/{{ x.id }}">1</option>
+                            <option value="cart/update/2/{{ x.id }}">2</option>
+                            <option value="cart/update/3/{{ x.id }}">3</option>
+                            <option value="cart/update/4/{{ x.id }}">4</option>
+                            <option value="cart/update/5/{{ x.id }}">5</option>
+                        </select>
+                    </td>
+                    <td>{{ x.price }}</td>
+                    <td><a href="/remove_cart/{{ x.id }}" class="btn btn-danger">Remove</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="text-right">Total Price</td>
+                    <td>{{ total_price }}</td>
+                    <td></td>
+                    <td><button><a href="/add_to_order">Buy Now</a></button></td>
+                </tr>
+            </tfoot>
+
+            <h3 align="center"><button></button></h3>
+        </table>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

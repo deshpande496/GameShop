@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .styled-button {
+    background-color: greenyellow;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    justify-content: center;
+    margin-left: 540px;
+    margin-top: 20px;
+}
+
+    </style>
+ 
+</head>
+<body>
+    <h1 align="center">Registration Page</h1>
+
+    <table align="center" border="2">
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <tr>
+                <th>First Name:</th>
+                <td>{{ form.first_name }}</td>
+            </tr>
+
+            <tr>
+                <th>Last Name:</th>
+                <td>{{ form.last_name }}</td>
+            </tr>
+
+            <tr>
+                <th>Username:</th>
+                <td>{{ form.username }}</td>
+            </tr>
+
+            <tr>
+                <th>Email:</th>
+                <td>{{ form.email }}</td>
+            </tr>
+
+            <tr>
+                <th>Password:</th>
+                <td>{{ form.password }}</td>
+            </tr>
+
+            <tr>
+                <th>Confirm Password:</th>
+                <td>{{ form.confirmPassword }}</td>
+            </tr>
+
+            <tr>
+                <th colspan="2" align="center"><input type="submit" value="submit"></th>
+            </tr>
+        </form>
+    </table>
+    
+    <!-- <button align="center" style="color:rgb(13, 148, 54)"><a href="/login">Login</a></button> -->
+    <div class="button-container" >
+        <button class="styled-button" ><a href="/login">Login</a></button>
+    </div>
+</body>
+</html>

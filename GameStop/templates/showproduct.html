@@ -1,0 +1,151 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        
+    .styled-button {
+    background-color: greenyellow;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    justify-content: center;
+    margin-left: 540px;
+    margin-top: 20px;
+}
+
+    </style>
+</head>
+<body>
+    <h1 align="center">Show Products</h1>
+    <table border="2" align="center" style="width:50%">
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Manufacturer</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Cart</th> -->
+
+            
+                   <!-- <th>IsAvailable</th> -->
+<!-- 
+            {% if request.user.is_staff %}
+            <th>Update</th>
+            <th>Delete</th>
+            {% endif %}
+        </tr>
+
+        {% for x in data %}
+
+        <tr align="center">
+            <td><img src="{{ x.image.url}}" style="height: 250px; width:250px"></td>
+            <td>{{ x.name }}</td>
+            <td>{{ x.description }}</td>
+            <td>{{ x.manufacturer }}</td>
+            <td>{{ x.price }}</td>
+            <td>{{ x.category }}</td>
+            <td><a href="/add_to_cart/{{ x.id }}">Add to Cart</a></td>  -->
+
+
+                   <!-- <td>{{ x.isAvailable }}</td> -->
+
+            <!-- {% if request.user.is_staff %}
+            <td><a href="/products/edit/{{ x.id }}">update</a></td>
+            <td><a href="/products/delete/{{ x.id }}">delete</a></td>
+            {% endif %}
+        </tr>
+
+        {% endfor %}
+    </table>
+
+    <div class="button-container" >
+        <button class="styled-button" ><a href="/">Home</a></button>
+    </div>
+    
+    
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .img-column {
+            width: 200px;
+        }
+        .img-fluid {
+            max-height: 200px;
+            max-width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">Show Products</h1>
+        <table class="table table-bordered text-center" style="width:100%">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="img-column">Image</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Manufacturer</th>
+                    <!-- <th>Price</th>
+                    <th>Category</th> -->
+                    <th>Cart</th>
+                    {% if request.user.is_staff %}
+                    <th>Update</th>
+                    <th>Delete</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for x in data %}
+                <tr>
+                    <td><img src="{{ x.image.url }}" class="img-fluid"></td>
+                    <td><a href="/products/details/{{ x.id }}">{{ x.name }}</a></td>
+                    <td>{{ x.description }}</td>
+                    <td>{{ x.manufacturer }}</td>
+                    <!-- <td>{{ x.price }}</td> -->
+                    <!-- <td>{{ x.category }}</td> -->
+                    <td><a href="/add_to_cart/{{ x.id }}" class="btn btn-primary">Add to Cart</a></td>
+                    {% if request.user.is_staff %}
+                    <td><a href="/products/edit/{{ x.id }}" class="btn btn-warning">Update</a></td>
+                    <td><a href="/products/delete/{{ x.id }}" class="btn btn-danger">Delete</a></td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="button-container">
+            <a href="/" class="btn btn-success">Home</a>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center">Index Page</h1>
+    <br>
+    <br>
+    <br>
+    
+    <h3 align="center"><a href="/products/view">Show Games</a></h3>
+
+    
+
+
+    {% if request.user.is_superuser %}
+
+    <h3 align="center"><a href="/users/view"> Show Users </a></h3>
+    <h3 align="center"><a href="/logout">Logout</a></h3>
+
+    {% elif request.user.is_staff %}
+    
+    <h3 align="center"><a href="/products">Add New Product</a></h3>
+    <!-- <h3 align="center"><a href="/login">Login</a></h3> -->
+    <h3 align="center"><a href="/logout">Logout</a></h3>
+    <h3 align="center"><a href="/cart">Cart</a></h3>
+    <h3 align="center"><a href="/orders">Your orders</a></h3>
+
+    {% elif request.user.is_authenticated %}
+
+        <h3 align="center"><a href="/logout">Logout</a></h3>
+        <h3 align="center"><a href="/cart">Cart</a></h3>
+        <h3 align="center"><a href="/orders">Your orders</a></h3>
+
+    {% else %}
+
+    <h3 align="center"><a href="/register">Register</a></h3>
+    <h3 align="center"><a href="/login">Login</a></h3>
+    
+
+    {% endif %}
+
+
+    
+</body>
+</html>
